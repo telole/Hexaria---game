@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexaria</title>
+    <link rel="stylesheet" href="cssc.css">
+    <script src="js.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1><img src="logo.png" alt=""></h1>
+    </header>
+
+    <main>
+        <div id="gameContainer">
+            <canvas id="hexCanvas" width="600" height="500"></canvas>
+            
+            <div id="leaderboard">
+                <h2>Leaderboard</h2>
+                <label for="sort">Sort by:</label>
+                <select id="sort">
+                    <option value="date">Date</option>
+                    <option value="score">Score</option>
+                </select>
+                <ul id="leaderboardList">
+                    <li>Budi vs Irfan <span>48 - 32</span> <button>Detail</button></li>
+                    <li>Budi vs Irfan <span>40 - 40</span> <button>Detail</button></li>
+                    <li>Joko vs Jaki <span>25 - 55</span> <button>Detail</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="gameInfo">
+            <p>Current: <span id="currentHex">11</span></p>
+            <p><span style="color: red;">■</span> Budi <span class="playerScore" id="player1Score">208</span></p>
+            <p><span style="color: cyan;">■</span> Irfan <span class="playerScore" id="player2Score">169</span></p>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexaria</title>
+    <link rel="stylesheet" href="game.css">
+    <link rel="shortcut icon" href="img/Fear.webp" type="image/x-icon">
+</head>
+<body>
+    <audio src="/audio/main-song.mp3" id="mainAudio"></audio>
+    
+    <div class="container-top">
+        <div class="left-area"></div>
+    </div>
+
+    <div class="center-area">
+        <img src="logo.png" alt="Hexaria Logo">
+    </div>
+
+
+
+    <div class="container">
+        <div class="board-area">
+            <div id="game-board" class="game-board"></div>
+            <div class="current-hex">
+                <div class="hexagon">
+                    <div class="top"></div>
+                    <div class="main"></div>
+                    <div class="bottom"></div>
+                </div>
+            </div>
+        </div>
+        <div class="leaderboard-area">
+            <h1 class="leaderboard-title">Leaderboard</h1>
+        </div>
+    </div>
+    <div class="right-area">
+        <div class="player-1 player">
+            <span style="color: red;">■</span>
+            <h3 id="player1"></h3>
+            <p id="player1-score">280</p>
+        </div>
+        <div class="player-2 player">
+            <p id="player2-score">280</p>
+            <span style="color: cyan;">■</span>
+            <h3 id="player2"></h3>
+        </div>
+    </div>
+    <script src="index.js"> </script>
+</body>
+</html>

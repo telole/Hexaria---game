@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexaria</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="welcome">
+        <div class="gameInstruction">
+            <h1>Game Instruction</h1>
+            <ol>
+                <li>Input your name and bot name</li>
+                <li>Click "Play Game"</li>
+                <li>Select a hexagon to start</li>
+                <li>Make sure your hexagon is stronger than the enemy's to score points</li>
+                <li>Collect more points to win!</li>
+            </ol>
+        </div>
+    </div>
+
+
+        <div class="welcomeScreen">
+            <a class="toggleInstructions" id="Instructions">Show Instructions</a>
+        
+        <img src="logo.png" alt="Hexaria Logo">
+        <div class="container">
+            <div class="name"> 
+                <label for="player">Player Name</label>
+                <input id="player1" type="text" placeholder="Enter your name">
+                
+                <label for="botName">Bot Name</label>
+                <input id="botName" type="text" placeholder="Enter bot's name">
+
+                <label for="difficulty">Choose Difficulty Level:</label>
+                <select id="difficulty">
+                    <option value="">Select Difficulty</option>
+                    <option value="easy">Mudah</option>
+                    <option value="medium">Sedang</option>
+                    <option value="hard">Sulit</option>
+                    <option value="bot">bot</option>
+                </select>
+            </div>
+            <button class="playGame" disabled>Start Game</button>
+        </div>
+    </div>
+ </div>
+        
+    
+    <script>
+        const btnPlay = document.querySelector('.playGame');
+        const playerName = document.querySelector('#player1');
+        const botName = document.querySelector('#botName');
+        const difficultySelect = document.querySelector('#difficulty');
+        const toggleInstructionsButton = document.querySelector('#Instructions');
+        const instructions = document.querySelector('.gameInstruction');
+
+        function validateInputs() {
+            const nameFilled = playerName.value; 
+            const levelSelected = difficultySelect.value;  
+
+            if (levelSelected === 'bot') {
+                if (!botName.value) {
+                    botName.value = 'Bot';
+                }
+            }
+
+            if (nameFilled && levelSelected) {
+                btnPlay.disabled = false;
+            } else {
+                btnPlay.disabled = true;
+            }
+        }
+
+        playerName.addEventListener('input', validateInputs);
+        botName.addEventListener('input', validateInputs);
+        difficultySelect.addEventListener('change', validateInputs);
+
+        btnPlay.addEventListener('click', () => {
+            const level = difficultySelect.value;
+            if (playerName.value && level) {
+                sessionStorage.setItem('player1', playerName.value);
+                sessionStorage.setItem('player2', botName.value);
+                sessionStorage.setItem('level', level);
+
+                window.location.href = 'class.html';
+            } else {
+                alert('Please fill in all fields to start the game!');
+            }
+        });
+
+        toggleInstructionsButton.addEventListener('click', () => {
+            if (instructions.classList.contains('hidden')) {
+                instructions.classList.remove('hidden');
+                toggleInstructionsButton.textContent = 'Hide Instructions';
+            } else {
+                instructions.classList.add('hidden');
+                toggleInstructionsButton.textContent = 'Show Instructions';
+            }
+        });
+    </script>
+</body>
+</html>
